@@ -5,7 +5,11 @@
       :key="objMovie.title"
       :movie-info="objMovie"
     >
-      {{ objMovie.title }}
+      <img
+        :src="'https://image.tmdb.org/t/p/w300'+objMovie.poster_path"
+        :alt="img+objMovie.title"
+      >
+      <h3>{{ objMovie.title }}</h3>
     </div>
   </main>
 </template>
@@ -36,5 +40,18 @@ export default {
   main{
     background-color: gray;
     min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    div{
+      margin: 1rem;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      h3{
+        background-color: white;
+      }
+    }
   }
 </style>

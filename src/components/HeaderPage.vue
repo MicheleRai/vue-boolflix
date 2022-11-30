@@ -15,6 +15,8 @@ header{
   background-color: black;
   height: 100px;
   display: flex;
+  align-items: center;
+  padding: 1rem;
 
   h1{
     color: red;
