@@ -6,10 +6,16 @@
       :movie-info="objMovie"
     >
       <img
-        :src="'https://image.tmdb.org/t/p/w300'+objMovie.poster_path"
+        key="objMovie.title"
+        :src="'https://image.tmdb.org/t/p/w342'+objMovie.poster_path"
         :alt="img+objMovie.title"
       >
-      <h3>{{ objMovie.title }}</h3>
+      <div class="info">
+        <h3>{{ objMovie.title }}</h3>
+        <p>titolo originale: {{ objMovie.original_title }}</p>
+        <p>lingua: {{ objMovie.original_language }}</p>
+        <p>voto: {{ objMovie.vote_average }}</p>
+      </div>
     </div>
   </main>
 </template>
@@ -24,6 +30,7 @@ export default {
     return {
       urlApi: 'https://api.themoviedb.org/3/search/movie?api_key=ce50709de8103dbd86e95807b64b0b75&query=fight',
       arrFilm: null,
+      img: '',
     };
   },
   created() {
@@ -49,7 +56,7 @@ export default {
       display: flex;
       flex-direction: column;
       text-align: center;
-      h3{
+      .info{
         background-color: white;
       }
     }
