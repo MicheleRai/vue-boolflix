@@ -11,7 +11,8 @@ import MainPage from '@/components/MainPage.vue';
 
 export default {
   name: 'App',
-  comments: {
+
+  components: {
     HeaderPage,
     MainPage,
   },
