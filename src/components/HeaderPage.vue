@@ -1,20 +1,22 @@
 <template>
   <header>
-    <h1>BOOLFLIX</h1>
-    <form @submit.prevent="$emit('queryChange', queryString)">
-      <label for="query">
-        <input
-          id="query"
-          v-model="queryString"
-          type="text"
-          name="query"
-          placeholder="Cerca qualcosa da vedere"
-        >
-      </label>
-      <button>
-        Cerca
-      </button>
-    </form>
+    <div class="container">
+      <h1>BOOLFLIX</h1>
+      <form @submit.prevent="$emit('queryChange', queryString)">
+        <label for="query">
+          <input
+            id="query"
+            v-model="queryString"
+            type="text"
+            name="query"
+            placeholder="Cerca qualcosa da vedere"
+          >
+        </label>
+        <button>
+          Cerca
+        </button>
+      </form>
+    </div>
   </header>
 </template>
 
@@ -40,10 +42,15 @@ header{
   height: 100px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  div{
+  display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 1rem;
   max-width: 1200px;
   width: 100%;
+  }
 
   h1{
     color: red;

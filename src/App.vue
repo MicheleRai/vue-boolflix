@@ -1,7 +1,10 @@
 <template>
   <body>
     <HeaderPage @queryChange="search" />
-    <MainPage :arr-movies="arrMovies" />
+    <MainPage
+      :arr-movies="arrMovies"
+      :arr-tv="arrTv"
+    />
   </body>
 </template>
 
@@ -21,22 +24,34 @@ export default {
     return {
       baseApiUrl: 'https://api.themoviedb.org/3',
       apiKey: 'ce50709de8103dbd86e95807b64b0b75',
-      resultsLanguage: 'it-IT',
+      resultsLanguages: 'it-IT',
       arrMovies: [],
+      arrTv: [],
     };
   },
   methods: {
     search(queryString) {
       axios.get(`${this.baseApiUrl}/search/movie`, {
         params: {
-          api_Key: this.apiKey,
+          api_key: this.apiKey,
+          language: this.resultsLanguages,
           query: queryString,
-          language: this.resultsLanguage,
         },
       })
         .then((responseAxios) => {
           this.arrMovies = responseAxios.data.results;
           console.log(this.arrMovies);
+        });
+      axios.get(`${this.baseApiUrl}/search/tv`, {
+        params: {
+          api_key: this.apiKey,
+          language: this.resultsLanguages,
+          query: queryString,
+        },
+      })
+        .then((responseAxios) => {
+          this.arrTv = responseAxios.data.results;
+          console.log(this.arrTv);
         });
     },
   },
