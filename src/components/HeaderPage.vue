@@ -1,19 +1,20 @@
 <template>
   <header>
     <h1>BOOLFLIX</h1>
-    <label for="s">
-      <input
-        id="s"
-        v-model="searchString"
-        type="text"
-        name="s"
-        placeholder="Cerca qualcosa da vedere"
-        @keyup.enter="search"
-      >
-      <button @click="search">
+    <form @submit.prevent="$emit('queryChange', queryString)">
+      <label for="query">
+        <input
+          id="query"
+          v-model="queryString"
+          type="text"
+          name="query"
+          placeholder="Cerca qualcosa da vedere"
+        >
+      </label>
+      <button>
         Cerca
       </button>
-    </label>
+    </form>
   </header>
 </template>
 
@@ -22,7 +23,7 @@ export default {
   name: 'HeaderPage',
   data() {
     return {
-      searchString: '',
+      queryString: '',
     };
   },
   methods: {
