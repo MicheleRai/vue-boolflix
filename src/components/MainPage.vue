@@ -17,7 +17,11 @@
         >
         <li><h1>{{ objMovie.title }}</h1></li>
         <li>Titolo originale:{{ objMovie.original_title }}</li>
-        <li>Lingua originale:{{ objMovie.original_language }}</li>
+        <li>
+          Lingua originale:<lang-flag
+            :iso="objMovie.original_language"
+          />
+        </li>
         <li>Voto:{{ objMovie.vote_average }}</li>
       </ul>
       <h1
@@ -38,7 +42,11 @@
           <h1>{{ objTv.name }}</h1>
         </li>
         <li>Titolo originale:{{ objTv.original_name }}</li>
-        <li>Lingua originale:{{ objTv.original_language }}</li>
+        <li>
+          Lingua originale:<lang-flag
+            :iso="objTv.original_language"
+          />
+        </li>
         <li>Voto:{{ objTv.vote_average }}</li>
       </ul>
     </div>
@@ -46,9 +54,13 @@
 </template>
 
 <script>
+import LangFlag from 'vue-lang-code-flags';
 
 export default {
   name: 'MainPage',
+  components: {
+    LangFlag,
+  },
   props: {
     arrMovies: Array,
     arrTv: Array,
@@ -81,7 +93,7 @@ export default {
         margin: 1rem;
         flex: 0 0 20%;
        li{
-         background-color: white;
+         background-color: rgb(165, 161, 161);
 
        }
       }

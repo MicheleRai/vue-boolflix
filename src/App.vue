@@ -12,6 +12,10 @@
 import axios from 'axios';
 import HeaderPage from '@/components/HeaderPage.vue';
 import MainPage from '@/components/MainPage.vue';
+import Vue from 'vue';
+import LangFlag from 'vue-lang-code-flags';
+
+Vue.component('LangFlag', LangFlag);
 
 export default {
   name: 'App',
