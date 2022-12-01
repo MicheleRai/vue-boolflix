@@ -1,7 +1,10 @@
 <template>
   <main>
     <div>
-      <h1 v-if="arrMovies.length">
+      <h1
+        v-if="arrMovies.length"
+        class="section"
+      >
         MOVIE
       </h1>
       <ul
@@ -12,12 +15,15 @@
           :src="'https://image.tmdb.org/t/p/w342/' + objMovie.poster_path"
           alt="img"
         >
-        <li>{{ objMovie.title }}</li>
-        <li>{{ objMovie.original_title }}</li>
-        <li>{{ objMovie.original_language }}</li>
-        <li>{{ objMovie.vote_average }}</li>
+        <li><h1>{{ objMovie.title }}</h1></li>
+        <li>Titolo originale:{{ objMovie.original_title }}</li>
+        <li>Lingua originale:{{ objMovie.original_language }}</li>
+        <li>Voto:{{ objMovie.vote_average }}</li>
       </ul>
-      <h1 v-if="arrTv.length">
+      <h1
+        v-if="arrTv.length"
+        class="section"
+      >
         SERIE TV
       </h1>
       <ul
@@ -28,10 +34,12 @@
           :src="'https://image.tmdb.org/t/p/w342/' + objTv.poster_path"
           alt="img"
         >
-        <li>{{ objTv.name }}</li>
-        <li>{{ objTv.original_name }}</li>
-        <li>{{ objTv.original_language }}</li>
-        <li>{{ objTv.vote_average }}</li>
+        <li>
+          <h1>{{ objTv.name }}</h1>
+        </li>
+        <li>Titolo originale:{{ objTv.original_name }}</li>
+        <li>Lingua originale:{{ objTv.original_language }}</li>
+        <li>Voto:{{ objTv.vote_average }}</li>
       </ul>
     </div>
   </main>
@@ -61,13 +69,22 @@ export default {
     justify-content: center;
     flex-wrap: wrap;
     div{
-      margin: 1rem;
       display: flex;
-      flex-direction: column;
       text-align: center;
-      // .info{
-      //   background-color: white;
-      // }
+      justify-content: center;
+      flex-wrap: wrap;
+      .section{
+        flex: 0 0 100%;
+      }
+      ul{
+        list-style: none;
+        margin: 1rem;
+        flex: 0 0 20%;
+       li{
+         background-color: white;
+
+       }
+      }
     }
   }
 </style>
